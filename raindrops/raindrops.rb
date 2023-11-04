@@ -1,7 +1,13 @@
-=begin
-Write your code for the 'Raindrops' exercise in this file. Make the tests in
-`raindrops_test.rb` pass.
+module Raindrops
+  RAINDROPS = {
+    3 => 'Pling',
+    5 => 'Plang',
+    7 => 'Plong'
+  }
 
-To get started with TDD, see the `README.md` file in your
-`ruby/raindrops` directory.
-=end
+  def self.convert(n)
+    result = ''
+    RAINDROPS.each {|k, v| result += v if n % k == 0}
+    result.empty? ? n.to_s : result
+  end
+end
