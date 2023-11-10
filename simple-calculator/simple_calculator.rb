@@ -6,10 +6,10 @@ module SimpleCalculator
 
   def self.calculate(first_operand, second_operand, operation)
     raise UnsupportedOperation unless ALLOWED_OPERATIONS.include?(operation)
-    raise ArgumentError if !first_operand.is_a?(Integer) || !second_operand.is_a?(Integer)
+    raise ArgumentError unless first_operand.is_a?(Integer) && second_operand.is_a?(Integer)
     
     begin
-      result = first_operand.method(operation).(second_operand)
+      result = first_operand.send(operation, second_operand)
       "#{first_operand} #{operation} #{second_operand} = #{result}"
     rescue
       ZeroDivisionError => e
