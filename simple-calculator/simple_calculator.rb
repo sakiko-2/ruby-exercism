@@ -1,5 +1,5 @@
 module SimpleCalculator
-  class UnsupportedOperation < ::StandardError
+  class UnsupportedOperation < StandardError
   end
 
   ALLOWED_OPERATIONS = ['+', '/', '*'].freeze
