@@ -1,7 +1,11 @@
-=begin
-Write your code for the 'Sum Of Multiples' exercise in this file. Make the tests in
-`sum_of_multiples_test.rb` pass.
+class SumOfMultiples
+  def initialize(*base_values)
+    @base_values = base_values
+  end
 
-To get started with TDD, see the `README.md` file in your
-`ruby/sum-of-multiples` directory.
-=end
+  def to(level)
+    return 0 if @base_values === [0]
+
+    (1...level).select { |l| @base_values.any? { |v| l % v == 0 } }.sum
+  end  
+end
