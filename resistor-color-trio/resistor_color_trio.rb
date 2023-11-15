@@ -1,7 +1,23 @@
-=begin
-Write your code for the 'Resistor Color Trio' exercise in this file. Make the tests in
-`resistor_color_trio_test.rb` pass.
+class ResistorColorTrio
+  attr_reader :colors
 
-To get started with TDD, see the `README.md` file in your
-`ruby/resistor-color-trio` directory.
-=end
+  COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white']
+
+  def initialize(colors)
+    @colors = colors
+  end
+
+  def label
+    a, b, c = colors
+
+    value = (COLORS.index(a) * 10 + COLORS.index(b)) * (10 ** COLORS.index(c))
+    unit = 'ohms'
+
+    if value.digits.count >= 4
+      value /= 10 ** 3
+      unit = 'kiloohms'
+    end
+    
+    "Resistor value: #{value} #{unit}"
+  end
+end
