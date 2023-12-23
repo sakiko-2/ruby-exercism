@@ -9,49 +9,49 @@ class DartsTest < Minitest::Test
   end
 
   def test_on_the_outer_circle
-    skip
+    # skip
     darts = Darts.new(0, 10)
     assert_equal(1, darts.score)
   end
 
   def test_on_the_middle_circle
-    skip
+    # skip
     darts = Darts.new(-5, 0)
     assert_equal(5, darts.score)
   end
 
   def test_on_the_inner_circle
-    skip
+    # skip
     darts = Darts.new(0, -1)
     assert_equal(10, darts.score)
   end
 
   def test_exactly_on_centre
-    skip
+    # skip
     darts = Darts.new(0, 0)
     assert_equal(10, darts.score)
   end
 
   def test_near_the_centre
-    skip
+    # skip
     darts = Darts.new(-0.1, -0.1)
     assert_equal(10, darts.score)
   end
 
   def test_just_within_the_inner_circle
-    skip
+    # skip
     darts = Darts.new(0.7, 0.7)
     assert_equal(10, darts.score)
   end
 
   def test_just_outside_the_inner_circle
-    skip
+    # skip
     darts = Darts.new(0.8, -0.8)
     assert_equal(5, darts.score)
   end
 
   def test_just_within_the_middle_circle
-    skip
+    # skip
     darts = Darts.new(-3.5, 3.5)
     assert_equal(5, darts.score)
   end

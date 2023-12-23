@@ -1,7 +1,24 @@
-=begin
-Write your code for the 'Darts' exercise in this file. Make the tests in
-`darts_test.rb` pass.
+class Darts
+  attr_reader :x, :y
 
-To get started with TDD, see the `README.md` file in your
-`ruby/darts` directory.
-=end
+  RADIUS = { 'inner' => 1, 'middle' => 5, 'outer' => 10 }
+
+  def initialize(x, y)
+    @x = x
+    @y = y
+  end
+
+  def score
+    distance = Math.sqrt(x ** 2 + y ** 2)
+
+    if distance <= RADIUS['inner']
+      10
+    elsif distance <= RADIUS['middle']
+      5
+    elsif distance <= RADIUS['outer']
+      1
+    else
+      0
+    end
+  end
+end
