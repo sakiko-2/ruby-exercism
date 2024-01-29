@@ -1,7 +1,14 @@
-=begin
-Write your code for the 'Collatz Conjecture' exercise in this file. Make the tests in
-`collatz_conjecture_test.rb` pass.
+module CollatzConjecture
+  def self.steps(n)
+    raise ArgumentError if n <= 0
 
-To get started with TDD, see the `README.md` file in your
-`ruby/collatz-conjecture` directory.
-=end
+    steps = 0
+
+    while n != 1
+      n.even? ? n /= 2 : n = 3 * n + 1
+      steps += 1
+    end
+
+    steps
+  end
+end
