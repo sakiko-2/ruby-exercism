@@ -1,7 +1,13 @@
-=begin
-Write your code for the 'Sieve' exercise in this file. Make the tests in
-`sieve_test.rb` pass.
+class Sieve
+  attr_reader :limit
 
-To get started with TDD, see the `README.md` file in your
-`ruby/sieve` directory.
-=end
+  def initialize(limit)
+    @limit = limit
+  end
+
+  def primes
+    numbers = (2..limit).to_a
+    marked = numbers.map {|n| (n * 2..limit).step(n).to_a}.flatten
+    numbers.select {|n| !marked.include?(n)}
+  end
+end
